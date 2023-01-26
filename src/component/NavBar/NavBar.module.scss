@@ -1,0 +1,10 @@
+@import "../../import.scss";
+
+.tab{
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+}
+.active{
+  background-color: $primary !important;
+  color: $secondary !important;
+}

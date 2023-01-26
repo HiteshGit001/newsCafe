@@ -1,5 +1,24 @@
 @import "./import.scss";
 
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  font-family: $font-primary;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
 // fonts
 .play1221700Primary {
   @include font($font-primary, 1rem, 1.3rem, 700, $primary);
@@ -23,4 +42,62 @@
 
 .roboto3642700Primary {
   @include font($font-secondary, 2.25rem, 2.6rem, 700, $font-primary);
+}
+
+// gap
+.md_gap {
+  gap: 2rem !important;
+}
+
+.sm_gap{
+  gap: 0.5rem !important;
+}
+
+// flex
+.flex_start_center {
+  @include flex(row, none, center);
+}
+
+.flex_between_center {
+  @include flex(row, space-between, center);
+}
+
+.flex_center_center {
+  @include flex(row, center, center);
+}
+
+.flex_between_start {
+  @include flex(row, space-between, start);
+}
+
+.flex_none_start {
+  @include flex(row, none, start);
+}
+
+.flex_none_gap {
+  @include flex(row, none, start, none, 0.5rem);
+}
+
+.flex_none_start_footer {
+  @include flex(row, none, start, none, 48%);
+}
+
+.flex_row_center_gap {
+  @include flex (row, none, center, none, 0.5rem);
+}
+
+.flex_col {
+  @include flex(column, none, center);
+}
+
+.flex_col_center {
+  @include flex(column, start, center, none)
+}
+
+.flex_col_center_center {
+  @include flex(column, center, center, none)
+}
+
+.flex_around_center {
+  @include flex(row, space-around, center);
 }
