@@ -1,25 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { ChakraProvider } from '@chakra-ui/react'
 import './App.css';
+import NavBar from './component/NavBar/NavBar';
+import Home from './pages/Home';
+import { route } from './Routes/routes';
+import "./styles.scss";
+import "./global.scss";
+import MobileDrawer from './component/Drawer/MobileDrawer';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ChakraProvider>
+      <MobileDrawer />
+      <div className="page_container">
+        <BrowserRouter>
+          <NavBar />
+          <Routes>
+            {
+              route.map((route: any) => {
+                return (
+                  <Route key={route.id} path={route.path} element={<route.element />} />
+                )
+              })
+            }
+          </Routes>
+        </BrowserRouter>
+      </div>
+    </ChakraProvider>
   );
 }
 
