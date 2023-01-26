@@ -1,0 +1,26 @@
+@import "./import.scss";
+
+// fonts
+.play1221700Primary {
+  @include font($font-primary, 1rem, 1.3rem, 700, $primary);
+}
+
+.play1221700Secondary {
+  @include font($font-primary, 1rem, 1.3rem, 700, $secondary);
+}
+
+.play2432700Primary {
+  @include font($font-primary, 1.5rem, 2rem, 700, $secondary);
+}
+
+.play1832400Primary {
+  @include font($font-primary, 1.125rem, 2rem, 400, $primaryShade1);
+}
+
+.roboto4856700Primary {
+  @include font($font-secondary, 3rem, 3.5rem, 700, $primary);
+}
+
+.roboto3642700Primary {
+  @include font($font-secondary, 2.25rem, 2.6rem, 700, $font-primary);
+}
