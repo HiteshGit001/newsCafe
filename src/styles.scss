@@ -29,15 +29,27 @@ p {
 }
 
 .play2432700Primary {
-  @include font($font-primary, 1.5rem, 2rem, 700, $secondary);
+  @include font($font-primary, 1.5rem, 2rem, 700, $primary);
 }
 
 .play1832400Primary {
   @include font($font-primary, 1.125rem, 2rem, 400, $primaryShade1);
 }
 
+.play3248700Secondary {
+  @include font($font-primary, 2rem, 3rem, 700, $secondary);
+}
+
 .roboto4856700Primary {
   @include font($font-secondary, 3rem, 3.5rem, 700, $primary);
+}
+
+.roboto1218400Secondary {
+  @include font($font-secondary, 0.75rem, 1.125rem, 400, $secondary);
+}
+
+.roboto1218400Thirtary {
+  @include font($font-secondary, 0.75rem, 1.125rem, 400, $thirtary);
 }
 
 .roboto3642700Primary {
@@ -49,7 +61,7 @@ p {
   gap: 2rem !important;
 }
 
-.sm_gap{
+.sm_gap {
   gap: 0.5rem !important;
 }
 
