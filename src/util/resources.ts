@@ -6,5 +6,7 @@ export const resources = {
   loadingYourNews: "Loading Your News ...",
   hours: "hours",
   search: "search",
+  key: "key",
+  fromDate: "From Date",
   countyName: ["us", "in"],
 }
