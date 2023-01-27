@@ -1,4 +1,4 @@
-import { HOME_PATH, NEWS_PATH, WISH_LIST_PATH } from "../key/constants";
+import { HOME_PATH, NEWS_PATH, SEARCH_NEWS_PATH, WISH_LIST_PATH } from "../key/constants";
 import Home from "../pages/Home";
 import News from "../pages/News";
 import WishList from "../pages/WishList";
@@ -25,5 +25,12 @@ export const route = [
     path: WISH_LIST_PATH,
     element: WishList,
     isPrivate: true,
+  },
+  {
+    id: "search_news",
+    name: "Search News",
+    path: SEARCH_NEWS_PATH,
+    element: News,
+    isPrivate: false,
   }
 ]

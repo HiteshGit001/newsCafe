@@ -3,3 +3,12 @@
 .page_container{
   padding: 2rem 8rem;
 }
+
+.grid_new_card{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.custom_modal{
+  width: 50% !important;
+}
