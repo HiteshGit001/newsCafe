@@ -13,6 +13,7 @@ const DataContextProvider = ({ children }) => {
   const [searchDate, setSearchDate] = useState("2022-12-27");
   const [searchData, setSearchData] = useState();
   const [loading, setLoading] = useState(true);
+  const [filterData, setFilterData] = useState([]);
   const {
     isOpen: drawerIsOpen,
     onOpen: drawerOnOpen,
@@ -32,6 +33,8 @@ const DataContextProvider = ({ children }) => {
     searchDate,
     searchData,
     loading,
+    filterData,
+    setFilterData,
     setLoading,
     setSearchData,
     setSearchDate,

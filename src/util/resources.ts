@@ -9,4 +9,5 @@ export const resources = {
   key: "key",
   fromDate: "From Date",
   countyName: ["us", "in"],
+  catagoryTab: ["business", "sports"],
 }
