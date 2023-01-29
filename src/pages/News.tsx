@@ -1,7 +1,9 @@
 import { FC } from "react";
+import cx from "classnames";
 import LoadingAnimation from "../component/Loading/LoadingAnimation";
 import NewsCard from "../component/NewsCard/NewsCard";
 import { useData } from "../dataContext/DataContext";
+import page from "./pages.module.scss";
 
 const News: FC = () => {
   const { searchData, loading } = useData();
@@ -13,7 +15,7 @@ const News: FC = () => {
           ? (
             <div>
               {
-                searchData?.length !== 0 || searchData
+                searchData?.length !== 0
                   ? (
                     <div className="grid_new_card md_gap">
                       {
@@ -25,7 +27,11 @@ const News: FC = () => {
                       }
                     </div>
                   )
-                  : <p>No Data</p>
+                  : (
+                    <div className={cx("flex_center_center", page.center)}>
+                      <p>No Data...</p>
+                    </div>
+                  )
               }
             </div>
           )

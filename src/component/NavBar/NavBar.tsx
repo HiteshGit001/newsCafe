@@ -67,9 +67,12 @@ const NavBar: FC = () => {
         onClose={searchOnClose}
         component={(
           <div className={styles.input_box}>
+            <p className="play1221700Primary">{resources?.search}</p>
+            <label className={styles.label_text}>{resources?.key}</label>
             <Input onChange={handleSearch} />
+            <label className={styles.label_text}>{resources?.fromDate}</label>
             <Input onChange={handleDate} type="date" />
-            <Button onClick={handleSubmit} type="submit">{resources?.search}</Button>
+            <Button className={styles.label_text} onClick={handleSubmit} type="submit">{resources?.search}</Button>
           </div>
         )}
       />
