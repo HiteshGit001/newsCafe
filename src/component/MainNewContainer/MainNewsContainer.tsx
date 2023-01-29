@@ -9,7 +9,7 @@ const MainNewsContainer: FC<IMainNewsContainer> = (props: any) => {
   const { news } = props;
   return (
     <div>
-      <div className={cx("flex_between_start", "md_gap")}>
+      <div className={cx("flex_between_start", "md_gap", styles.container)}>
         <div className={styles.img_box}>
           <a href={news?.url} target="_blank">
             <img className={styles.img_container_lg} src={news?.urlToImage} alt="img" />
