@@ -1,42 +1,77 @@
-import { FC } from "react";
-import cx from "classnames";
+import { Tab, TabList, TabPanel, TabPanels, Tabs } from "@chakra-ui/react";
+import { FC, useEffect, useState } from "react";
 import LoadingAnimation from "../component/Loading/LoadingAnimation";
 import NewsCard from "../component/NewsCard/NewsCard";
 import { useData } from "../dataContext/DataContext";
-import page from "./pages.module.scss";
+import { fetchFilter } from "../service/fetch";
+import pages from "./pages.module.scss";
+import { resources } from "../util/resources";
 
 const News: FC = () => {
-  const { searchData, loading } = useData();
-  console.log(searchData?.length);
+  const {
+    country,
+    loading,
+    filterData,
+    setFilterData,
+    setLoading,
+  } = useData();
+  const [catagory, setCatagory] = useState("business");
+  const filterTab = async (): Promise<any> => {
+    const res = await fetchFilter(country, catagory);
+    console.log(res, "filt");
+    if (res?.status === 200) {
+      setLoading(false);
+      setFilterData(res?.data);
+    }
+  }
+
+  const handleCatagory = (event: any) => {
+    setCatagory(event?.target?.value);
+  }
+
+  useEffect(() => {
+    filterTab()
+    setLoading(true)
+  }, [catagory, country]);
+
   return (
     <div>
-      {
-        !loading
-          ? (
-            <div>
-              {
-                searchData?.length !== 0
-                  ? (
-                    <div className="grid_new_card md_gap">
-                      {
-                        searchData?.map((ele: any, index: number) => {
-                          return (
-                            <NewsCard news={ele} key={index} />
-                          )
-                        })
-                      }
-                    </div>
-                  )
-                  : (
-                    <div className={cx("flex_center_center", page.center)}>
-                      <p>No Data...</p>
-                    </div>
-                  )
-              }
-            </div>
-          )
-          : <LoadingAnimation />
-      }
+      <div>
+        <Tabs className={pages?.news_page} variant='soft-rounded' colorScheme='green'>
+          <TabList className={pages?.news_tab_list}>
+            {
+              resources?.catagoryTab?.map((ele: any) => {
+                return (
+                  <Tab _selected={{ color: 'white', bg: 'gray' }} className={pages?.news_tab} value={ele} onClick={(event) => handleCatagory(event)}>{ele}</Tab>
+                )
+              })
+            }
+          </TabList>
+          <TabPanels>
+            {
+              loading
+                ? <LoadingAnimation />
+                : (
+                  resources?.catagoryTab?.map((ele: any) => {
+                    return (
+                      <TabPanel className="grid_new_card md_gap">
+                        {
+                          filterData?.articles?.map((ele: any) => {
+                            return (
+                              <div>
+                                <NewsCard news={ele} />
+                              </div>
+                            )
+                          })
+                        }
+                      </TabPanel>
+                    )
+                  })
+                )
+            }
+          </TabPanels>
+        </Tabs>
+      </div>
     </div>
   )
 }

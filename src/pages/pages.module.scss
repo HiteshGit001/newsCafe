@@ -8,3 +8,19 @@
 .center {
   height: 100vh;
 }
+
+// news page
+.news_page {
+  display: flex !important;
+  padding-top: 1rem !important;
+
+  .news_tab_list {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+
+    .news_tab {
+      border-radius: 0.5rem !important;
+    }
+  }
+}

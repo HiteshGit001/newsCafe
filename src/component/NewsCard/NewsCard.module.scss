@@ -1,5 +1,64 @@
 @import "../../import.scss";
 
+.hover_img {
+  position: relative;
+
+  .dis_box {
+    width: 100%;
+    height: 100%;
+    border-radius: 0.5rem;
+  }
+
+  .dis_box_text {
+    display: none;
+  }
+}
+
+.dis_box {
+  position: absolute;
+  top: 0;
+  overflow: hidden;
+}
+
+.hover_img:hover {
+  .dis_box {
+    background: rgba(0, 0, 0, 0.42);
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    animation-name: trans;
+    animation-duration: 1s;
+  }
+
+  .dis_box_text {
+    animation-name: texts;
+    animation-duration: 1s;
+    color: $secondary;
+    display: block;
+  }
+
+  @keyframes texts {
+    0% {
+      display: none;
+    }
+
+    20% {
+      display: none;
+    }
+  }
+
+  @keyframes trans {
+    from {
+      width: 0%;
+    }
+
+    to {
+      width: 100%;
+    }
+  }
+}
+
 .img_container {
   aspect-ratio: 2/1;
   border-radius: 0.5rem;
