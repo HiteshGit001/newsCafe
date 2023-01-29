@@ -24,3 +24,9 @@
     }
   }
 }
+
+@media only screen and (max-width: 600px){
+  .news_page{
+    flex-direction: column !important;
+  }
+}
